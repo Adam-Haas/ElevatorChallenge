@@ -60,8 +60,8 @@ namespace ElevatorChallenge
             {
                 case ElevatorStates.MovingUp:
                 case ElevatorStates.MovingDown:
-                    //Simulate some movement time
-                    Thread.Sleep(1000);
+                    //Simulate some movement time based on the distance betweeen floors
+                    Thread.Sleep(200 * Math.Abs(TargetFloor - CurrentFloor));
 
                     //The elevator is now stationary
                     ElevatorState = ElevatorStates.Stationary;
