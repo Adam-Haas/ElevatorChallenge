@@ -19,7 +19,7 @@ namespace ElevatorChallenge
             Console.WriteLine("Config:");
             var elevatorCount = ReadAndValidateIntegerInput("Elevator Count: ");
             var floorCount = ReadAndValidateIntegerInput("Floor Count: ");
-            var weightLimit = ReadAndValidateIntegerInput("Weight Limit: ");
+            var weightLimit = ReadAndValidateIntegerInput("Weight Limit (as number of people allowed in one lift): ");
 
             //Display the available commands
             displayHelp();
@@ -131,6 +131,13 @@ namespace ElevatorChallenge
 
             try
             {
+                if (leavingPassengers > elevator.PassengerCount)
+                {
+                    Console.WriteLine($"There is currently only {elevator.PassengerCount} in this lift,");
+                    Console.WriteLine($"You cannot remove {leavingPassengers} from the lift.");
+                    return boardAndUnboardPassengers(elevator);
+                }
+
                 elevator.BoardAndUnboardPassengers(enteringPassengers, leavingPassengers);
             }
             catch (WeightOverloadException ex)
