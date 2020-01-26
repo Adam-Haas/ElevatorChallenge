@@ -43,8 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Elevator.cs" />
+    <Compile Include="ElevatorHandler.cs" />
+    <Compile Include="ElevatorStates.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WeightOverloadException.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
